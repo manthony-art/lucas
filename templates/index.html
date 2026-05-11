@@ -2,135 +2,309 @@
 <html lang="en">
 <head>
     <meta charset="UTF-8">
-    <title>SILNT – Streetwear</title>
-    <link rel="stylesheet" href="/static/style.css">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes">
+    <title>SILNT – Worn clothes for the youth</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            background: #0a0a0a;  /* deep black base */
+            font-family: 'Inter', 'Segoe UI', system-ui, -apple-system, sans-serif;
+            color: #eee;
+            padding: 2rem 1.5rem;
+        }
+
+        /* red accent & white details */
+        .brand-red {
+            color: #e03a3a;
+        }
+
+        /* container */
+        .container {
+            max-width: 1300px;
+            margin: 0 auto;
+        }
+
+        /* header */
+        .brand-header {
+            text-align: center;
+            margin-bottom: 3rem;
+            border-bottom: 2px solid #e03a3a;
+            display: inline-block;
+            width: auto;
+            padding-bottom: 0.5rem;
+        }
+
+        h1 {
+            font-size: 4rem;
+            letter-spacing: 6px;
+            font-weight: 800;
+            color: white;
+            text-transform: uppercase;
+        }
+
+        h1 span {
+            color: #e03a3a;
+        }
+
+        .tagline {
+            font-size: 1.1rem;
+            text-transform: uppercase;
+            letter-spacing: 2px;
+            color: #ccc;
+            margin-top: 0.5rem;
+        }
+
+        /* description beside floating cards – we use a grid of product cards */
+        .products-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fill, minmax(280px, 1fr));
+            gap: 2rem;
+            margin-top: 2rem;
+        }
+
+        /* floating card effect (same animation as before) */
+        .product-card {
+            background: #111;
+            border: 1px solid #2a2a2a;
+            border-radius: 28px;
+            padding: 1.5rem;
+            transition: all 0.25s ease;
+            animation: float 4s infinite ease-in-out;
+            box-shadow: 0 15px 25px -12px rgba(0,0,0,0.5);
+            backdrop-filter: blur(2px);
+        }
+
+        .product-card:nth-child(1) { animation-delay: 0s; }
+        .product-card:nth-child(2) { animation-delay: 0.4s; }
+        .product-card:nth-child(3) { animation-delay: 0.8s; }
+        .product-card:nth-child(4) { animation-delay: 1.2s; }
+        .product-card:nth-child(5) { animation-delay: 0.2s; }
+        .product-card:nth-child(6) { animation-delay: 0.6s; }
+
+        @keyframes float {
+            0% { transform: translateY(0px); }
+            50% { transform: translateY(-6px); }
+            100% { transform: translateY(0px); }
+        }
+
+        .product-card:hover {
+            transform: scale(1.02) translateY(-4px);
+            border-color: #e03a3a;
+            box-shadow: 0 25px 35px -16px rgba(224,58,58,0.3);
+        }
+
+        /* image placeholder (no actual image, just a mockup area) */
+        .image-placeholder {
+            background: #1e1e1e;
+            border-radius: 20px;
+            height: 240px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            margin-bottom: 1.2rem;
+            border: 1px dashed #e03a3a;
+            text-align: center;
+            font-size: 0.9rem;
+            color: #aaa;
+            text-transform: uppercase;
+            transition: background 0.2s;
+        }
+
+        .image-placeholder i {
+            font-style: normal;
+            background: #2a2a2a;
+            padding: 8px 14px;
+            border-radius: 40px;
+        }
+
+        /* product info */
+        .product-title {
+            font-size: 1.4rem;
+            font-weight: 700;
+            margin-bottom: 0.5rem;
+            color: white;
+        }
+
+        .product-description {
+            font-size: 0.85rem;
+            color: #bcbcbc;
+            line-height: 1.4;
+            margin: 0.75rem 0;
+        }
+
+        .badge {
+            display: inline-block;
+            background: #e03a3a20;
+            border-left: 3px solid #e03a3a;
+            padding: 4px 10px;
+            font-size: 0.7rem;
+            font-weight: 600;
+            text-transform: uppercase;
+            color: #e03a3a;
+            margin-top: 0.5rem;
+        }
+
+        /* call to action / note for manufacturer */
+        .contact-note {
+            margin-top: 4rem;
+            text-align: center;
+            background: #111;
+            padding: 2rem;
+            border-radius: 32px;
+            border: 1px solid #2a2a2a;
+        }
+
+        .contact-note p {
+            max-width: 600px;
+            margin: 0 auto 1rem auto;
+            color: #ddd;
+        }
+
+        .btn {
+            display: inline-block;
+            background: #e03a3a;
+            color: white;
+            border: none;
+            padding: 12px 28px;
+            border-radius: 40px;
+            font-weight: bold;
+            letter-spacing: 0.5px;
+            text-decoration: none;
+            transition: background 0.2s;
+        }
+
+        .btn:hover {
+            background: #b02a2a;
+        }
+
+        hr {
+            border-color: #2a2a2a;
+            margin: 2rem 0;
+        }
+
+        footer {
+            text-align: center;
+            font-size: 0.7rem;
+            color: #666;
+            margin-top: 3rem;
+        }
+
+        /* responsive */
+        @media (max-width: 700px) {
+            body {
+                padding: 1rem;
+            }
+            h1 {
+                font-size: 2.5rem;
+            }
+            .products-grid {
+                gap: 1.2rem;
+            }
+        }
+    </style>
 </head>
 <body>
-
-<!-- Amazon‑style top bar -->
-<div class="top-bar">
-    <div class="logo">SILNT</div>
-    <div class="search-bar">
-        <input type="text" placeholder="Search designs...">
-        <button>🔍</button>
+<div class="container">
+    <div style="text-align: center;">
+        <div class="brand-header">
+            <h1>SILNT<span>.</span></h1>
+            <div class="tagline">worn clothes // for the youth</div>
+        </div>
     </div>
-    <div class="account-links">
-        <a href="#">Account</a>
-        <a href="#">Orders</a>
+
+    <!-- product grid -->
+    <div class="products-grid">
+        <!-- card 1 -->
+        <div class="product-card">
+            <div class="image-placeholder">
+                <i>📸 DESIGN IMAGE 1</i>
+            </div>
+            <div class="product-title">Oversized Denim Jacket</div>
+            <div class="product-description">
+                Washed black, worn effect, red stitching. Relaxed fit, made for layering.
+            </div>
+            <div class="badge">sample / production ready</div>
+        </div>
+
+        <!-- card 2 -->
+        <div class="product-card">
+            <div class="image-placeholder">
+                <i>📸 DESIGN IMAGE 2</i>
+            </div>
+            <div class="product-title">Cargo Pants "Silent Riot"</div>
+            <div class="product-description">
+                Heavy cotton, multiple pockets, red drawcord. Pre‑washed for softness.
+            </div>
+            <div class="badge">prototype approved</div>
+        </div>
+
+        <!-- card 3 -->
+        <div class="product-card">
+            <div class="image-placeholder">
+                <i>📸 DESIGN IMAGE 3</i>
+            </div>
+            <div class="product-title">Cropped Hoodie</div>
+            <div class="product-description">
+                Boxy silhouette, raw hem, embroidered logo. Black/red colorblock.
+            </div>
+            <div class="badge">new collection</div>
+        </div>
+
+        <!-- card 4 -->
+        <div class="product-card">
+            <div class="image-placeholder">
+                <i>📸 DESIGN IMAGE 4</i>
+            </div>
+            <div class="product-title">Vintage Tee "Noise"</div>
+            <div class="product-description">
+                Garment‑dyed, pigment print, slightly distressed. Unisex sizing.
+            </div>
+            <div class="badge">best seller</div>
+        </div>
+
+        <!-- card 5 -->
+        <div class="product-card">
+            <div class="image-placeholder">
+                <i>📸 DESIGN IMAGE 5</i>
+            </div>
+            <div class="product-title">Workwear Vest</div>
+            <div class="product-description">
+                Multi‑pocket, buckle straps, faded black ripstop.
+            </div>
+            <div class="badge">limited run</div>
+        </div>
+
+        <!-- card 6 -->
+        <div class="product-card">
+            <div class="image-placeholder">
+                <i>📸 DESIGN IMAGE 6</i>
+            </div>
+            <div class="product-title">Patchwork Jeans</div>
+            <div class="product-description">
+                Upcycled panels, red contrast seams, baggy fit.
+            </div>
+            <div class="badge">made to order</div>
+        </div>
     </div>
-</div>
 
-<!-- Secondary navigation (categories) -->
-<div class="category-nav">
-    <a href="#">All</a>
-    <a href="#">Hoodies</a>
-    <a href="#">T‑Shirts</a>
-    <a href="#">Denim</a>
-    <a href="#">Jackets</a>
-    <a href="#">Accessories</a>
-</div>
-
-<!-- Main container with sidebar + product grid -->
-<div class="main-container">
-
-    <!-- Left sidebar (filters) -->
-    <aside class="sidebar">
-        <h3>Filter by</h3>
-        <div class="filter-section">
-            <h4>Size</h4>
-            <label><input type="checkbox"> XS</label>
-            <label><input type="checkbox"> S</label>
-            <label><input type="checkbox"> M</label>
-            <label><input type="checkbox"> L</label>
-            <label><input type="checkbox"> XL</label>
-        </div>
-        <div class="filter-section">
-            <h4>Color</h4>
-            <label><input type="checkbox"> Black</label>
-            <label><input type="checkbox"> White</label>
-            <label><input type="checkbox"> Red</label>
-        </div>
-        <div class="filter-section">
-            <h4>Collection</h4>
-            <label><input type="checkbox"> Core</label>
-            <label><input type="checkbox"> Worn</label>
-            <label><input type="checkbox"> Limited</label>
-        </div>
-    </aside>
-
-    <!-- Product grid (lookbook) -->
-    <section class="products-grid">
-        <div class="product-card">
-            <div class="image-placeholder"></div>
-            <div class="product-info">
-                <h3>Oversized Hoodie</h3>
-                <p class="price">$89</p>
-                <p class="rating">★★★★☆ (24)</p>
-                <button class="view-btn">View design</button>
-            </div>
-        </div>
-
-        <div class="product-card">
-            <div class="image-placeholder"></div>
-            <div class="product-info">
-                <h3>Graphic Tee</h3>
-                <p class="price">$39</p>
-                <p class="rating">★★★★★ (47)</p>
-                <button class="view-btn">View design</button>
-            </div>
-        </div>
-
-        <div class="product-card">
-            <div class="image-placeholder"></div>
-            <div class="product-info">
-                <h3>Distressed Denim</h3>
-                <p class="price">$129</p>
-                <p class="rating">★★★★☆ (18)</p>
-                <button class="view-btn">View design</button>
-            </div>
-        </div>
-
-        <div class="product-card">
-            <div class="image-placeholder"></div>
-            <div class="product-info">
-                <h3>Street Jacket</h3>
-                <p class="price">$159</p>
-                <p class="rating">★★★★★ (32)</p>
-                <button class="view-btn">View design</button>
-            </div>
-        </div>
-
-        <div class="product-card">
-            <div class="image-placeholder"></div>
-            <div class="product-info">
-                <h3>Worn Cargo Pants</h3>
-                <p class="price">$99</p>
-                <p class="rating">★★★★☆ (11)</p>
-                <button class="view-btn">View design</button>
-            </div>
-        </div>
-
-        <div class="product-card">
-            <div class="image-placeholder"></div>
-            <div class="product-info">
-                <h3>Beanie</h3>
-                <p class="price">$25</p>
-                <p class="rating">★★★★★ (9)</p>
-                <button class="view-btn">View design</button>
-            </div>
-        </div>
-    </section>
-</div>
-
-<!-- Footer -->
-<footer>
-    <div class="footer-links">
-        <a href="#">About SILNT</a>
-        <a href="#">Vision</a>
-        <a href="#">Contact</a>
+    <!-- note for manufacturer & others -->
+    <div class="contact-note">
+        <p style="font-size:1.2rem; font-weight:600;">📦 ready for production</p>
+        <p>All samples are final. Technical packs & size specs available upon request.<br>
+        For bulk orders or custom runs, contact the SILNT team directly.</p>
+        <a href="#" class="btn">📩 REQUEST TECH PACK</a>
     </div>
-    <p>© 2026 SILNT — All Rights Reserved</p>
-</footer>
 
+    <hr>
+    <footer>
+        SILNT — worn clothes for the youth © 2025<br>
+        black / red / white collection
+    </footer>
+</div>
 </body>
 </html>
