@@ -12,18 +12,16 @@
         }
 
         body {
-            background: #0a0a0a;  /* deep black base */
+            background: #0a0a0a;
             font-family: 'Inter', 'Segoe UI', system-ui, -apple-system, sans-serif;
             color: #eee;
             padding: 2rem 1.5rem;
         }
 
-        /* red accent & white details */
         .brand-red {
             color: #e03a3a;
         }
 
-        /* container */
         .container {
             max-width: 1300px;
             margin: 0 auto;
@@ -59,7 +57,7 @@
             margin-top: 0.5rem;
         }
 
-        /* description beside floating cards – we use a grid of product cards */
+        /* product grid */
         .products-grid {
             display: grid;
             grid-template-columns: repeat(auto-fill, minmax(280px, 1fr));
@@ -67,38 +65,22 @@
             margin-top: 2rem;
         }
 
-        /* floating card effect (same animation as before) */
+        /* card – no continuous float, only the image will float on hover */
         .product-card {
             background: #111;
             border: 1px solid #2a2a2a;
             border-radius: 28px;
             padding: 1.5rem;
             transition: all 0.25s ease;
-            animation: float 4s infinite ease-in-out;
             box-shadow: 0 15px 25px -12px rgba(0,0,0,0.5);
-            backdrop-filter: blur(2px);
-        }
-
-        .product-card:nth-child(1) { animation-delay: 0s; }
-        .product-card:nth-child(2) { animation-delay: 0.4s; }
-        .product-card:nth-child(3) { animation-delay: 0.8s; }
-        .product-card:nth-child(4) { animation-delay: 1.2s; }
-        .product-card:nth-child(5) { animation-delay: 0.2s; }
-        .product-card:nth-child(6) { animation-delay: 0.6s; }
-
-        @keyframes float {
-            0% { transform: translateY(0px); }
-            50% { transform: translateY(-6px); }
-            100% { transform: translateY(0px); }
         }
 
         .product-card:hover {
-            transform: scale(1.02) translateY(-4px);
             border-color: #e03a3a;
             box-shadow: 0 25px 35px -16px rgba(224,58,58,0.3);
         }
 
-        /* image placeholder (no actual image, just a mockup area) */
+        /* image placeholder – this will float on hover */
         .image-placeholder {
             background: #1e1e1e;
             border-radius: 20px;
@@ -112,7 +94,16 @@
             font-size: 0.9rem;
             color: #aaa;
             text-transform: uppercase;
-            transition: background 0.2s;
+            transition: transform 0.25s ease, box-shadow 0.25s ease;
+            will-change: transform;
+        }
+
+        /* floating effect only on hover – image lifts up */
+        .product-card:hover .image-placeholder {
+            transform: translateY(-8px);
+            box-shadow: 0 20px 25px -12px rgba(224,58,58,0.4);
+            background: #2a2a2a;
+            border-color: #e03a3a;
         }
 
         .image-placeholder i {
@@ -120,6 +111,12 @@
             background: #2a2a2a;
             padding: 8px 14px;
             border-radius: 40px;
+            transition: background 0.2s;
+        }
+
+        .product-card:hover .image-placeholder i {
+            background: #e03a3a20;
+            color: #e03a3a;
         }
 
         /* product info */
@@ -149,7 +146,7 @@
             margin-top: 0.5rem;
         }
 
-        /* call to action / note for manufacturer */
+        /* contact section */
         .contact-note {
             margin-top: 4rem;
             text-align: center;
@@ -194,7 +191,6 @@
             margin-top: 3rem;
         }
 
-        /* responsive */
         @media (max-width: 700px) {
             body {
                 padding: 1rem;
@@ -217,7 +213,6 @@
         </div>
     </div>
 
-    <!-- product grid -->
     <div class="products-grid">
         <!-- card 1 -->
         <div class="product-card">
@@ -292,7 +287,6 @@
         </div>
     </div>
 
-    <!-- note for manufacturer & others -->
     <div class="contact-note">
         <p style="font-size:1.2rem; font-weight:600;">📦 ready for production</p>
         <p>All samples are final. Technical packs & size specs available upon request.<br>
