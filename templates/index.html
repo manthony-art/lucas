@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes">
-    <title>SILNT – Worn clothes for the youth</title>
+    <title>SILNT – worn clothes for the youth</title>
     <style>
         * {
             margin: 0;
@@ -12,18 +12,14 @@
         }
 
         body {
-            background: #0a0a0a;
-            font-family: 'Inter', 'Segoe UI', system-ui, -apple-system, sans-serif;
-            color: #eee;
+            background: white;
+            font-family: 'Inter', 'Segoe UI', system-ui, sans-serif;
+            color: #111;
             padding: 2rem 1.5rem;
         }
 
-        .brand-red {
-            color: #e03a3a;
-        }
-
         .container {
-            max-width: 1300px;
+            max-width: 1100px;
             margin: 0 auto;
         }
 
@@ -31,273 +27,286 @@
         .brand-header {
             text-align: center;
             margin-bottom: 3rem;
-            border-bottom: 2px solid #e03a3a;
-            display: inline-block;
-            width: auto;
-            padding-bottom: 0.5rem;
         }
 
         h1 {
             font-size: 4rem;
-            letter-spacing: 6px;
+            letter-spacing: 4px;
             font-weight: 800;
-            color: white;
-            text-transform: uppercase;
+            color: black;
         }
 
         h1 span {
-            color: #e03a3a;
+            color: #c00;
         }
 
         .tagline {
-            font-size: 1.1rem;
+            font-size: 1rem;
             text-transform: uppercase;
             letter-spacing: 2px;
-            color: #ccc;
+            color: #555;
             margin-top: 0.5rem;
         }
 
         /* product grid */
         .products-grid {
-            display: grid;
-            grid-template-columns: repeat(auto-fill, minmax(280px, 1fr));
+            display: flex;
+            flex-direction: column;
             gap: 2rem;
-            margin-top: 2rem;
         }
 
-        /* card – no continuous float, only the image will float on hover */
+        /* floating card */
         .product-card {
-            background: #111;
-            border: 1px solid #2a2a2a;
+            display: flex;
+            align-items: center;
+            gap: 2rem;
+            background: white;
             border-radius: 28px;
             padding: 1.5rem;
-            transition: all 0.25s ease;
-            box-shadow: 0 15px 25px -12px rgba(0,0,0,0.5);
+            box-shadow: 0 12px 24px -12px rgba(0, 0, 0, 0.08);
+            border: 1px solid #f0f0f0;
+            transition: box-shadow 0.2s, transform 0.2s;
         }
 
         .product-card:hover {
-            border-color: #e03a3a;
-            box-shadow: 0 25px 35px -16px rgba(224,58,58,0.3);
+            box-shadow: 0 20px 30px -12px rgba(0, 0, 0, 0.15);
+            transform: translateY(-2px);
         }
 
-        /* image placeholder – this will float on hover */
-        .image-placeholder {
-            background: #1e1e1e;
+        /* image container – floats on hover */
+        .product-image {
+            flex-shrink: 0;
+            width: 160px;
+            height: 160px;
+            background: #f8f8f8;
             border-radius: 20px;
-            height: 240px;
             display: flex;
             align-items: center;
             justify-content: center;
-            margin-bottom: 1.2rem;
-            border: 1px dashed #e03a3a;
-            text-align: center;
-            font-size: 0.9rem;
+            font-size: 0.8rem;
             color: #aaa;
-            text-transform: uppercase;
+            text-align: center;
             transition: transform 0.25s ease, box-shadow 0.25s ease;
-            will-change: transform;
+            border: 1px solid #eee;
         }
 
-        /* floating effect only on hover – image lifts up */
-        .product-card:hover .image-placeholder {
+        /* the floating effect on hover */
+        .product-card:hover .product-image {
             transform: translateY(-8px);
-            box-shadow: 0 20px 25px -12px rgba(224,58,58,0.4);
-            background: #2a2a2a;
-            border-color: #e03a3a;
+            box-shadow: 0 15px 20px -10px rgba(0, 0, 0, 0.1);
+            background: #fff;
+            border-color: #ddd;
         }
 
-        .image-placeholder i {
+        .product-image i {
             font-style: normal;
-            background: #2a2a2a;
-            padding: 8px 14px;
-            border-radius: 40px;
-            transition: background 0.2s;
+            background: #fff;
+            padding: 6px 12px;
+            border-radius: 30px;
+            font-size: 0.7rem;
+            color: #888;
         }
 
-        .product-card:hover .image-placeholder i {
-            background: #e03a3a20;
-            color: #e03a3a;
+        /* description area */
+        .product-info {
+            flex: 1;
         }
 
-        /* product info */
         .product-title {
-            font-size: 1.4rem;
+            font-size: 1.5rem;
             font-weight: 700;
             margin-bottom: 0.5rem;
-            color: white;
+            color: black;
         }
 
         .product-description {
-            font-size: 0.85rem;
-            color: #bcbcbc;
+            font-size: 0.9rem;
+            color: #444;
             line-height: 1.4;
-            margin: 0.75rem 0;
+            margin-bottom: 0.75rem;
         }
 
         .badge {
             display: inline-block;
-            background: #e03a3a20;
-            border-left: 3px solid #e03a3a;
-            padding: 4px 10px;
+            background: #f2f2f2;
+            padding: 4px 12px;
+            border-radius: 30px;
             font-size: 0.7rem;
             font-weight: 600;
-            text-transform: uppercase;
-            color: #e03a3a;
-            margin-top: 0.5rem;
+            color: #c00;
+            border-left: 2px solid #c00;
         }
 
         /* contact section */
         .contact-note {
             margin-top: 4rem;
             text-align: center;
-            background: #111;
+            background: #fafafa;
             padding: 2rem;
-            border-radius: 32px;
-            border: 1px solid #2a2a2a;
+            border-radius: 28px;
+            border: 1px solid #eee;
         }
 
         .contact-note p {
-            max-width: 600px;
+            max-width: 500px;
             margin: 0 auto 1rem auto;
-            color: #ddd;
+            color: #333;
         }
 
         .btn {
             display: inline-block;
-            background: #e03a3a;
+            background: #c00;
             color: white;
             border: none;
-            padding: 12px 28px;
+            padding: 10px 24px;
             border-radius: 40px;
             font-weight: bold;
-            letter-spacing: 0.5px;
             text-decoration: none;
             transition: background 0.2s;
         }
 
         .btn:hover {
-            background: #b02a2a;
+            background: #a00;
         }
 
         hr {
-            border-color: #2a2a2a;
+            border-color: #eee;
             margin: 2rem 0;
         }
 
         footer {
             text-align: center;
             font-size: 0.7rem;
-            color: #666;
-            margin-top: 3rem;
+            color: #aaa;
+            margin-top: 2rem;
         }
 
         @media (max-width: 700px) {
             body {
                 padding: 1rem;
             }
+            .product-card {
+                flex-direction: column;
+                text-align: center;
+                padding: 1.2rem;
+            }
+            .product-image {
+                width: 140px;
+                height: 140px;
+                margin-bottom: 1rem;
+            }
+            .product-title {
+                font-size: 1.3rem;
+            }
             h1 {
                 font-size: 2.5rem;
-            }
-            .products-grid {
-                gap: 1.2rem;
             }
         }
     </style>
 </head>
 <body>
 <div class="container">
-    <div style="text-align: center;">
-        <div class="brand-header">
-            <h1>SILNT<span>.</span></h1>
-            <div class="tagline">worn clothes // for the youth</div>
-        </div>
+    <div class="brand-header">
+        <h1>SILNT<span>.</span></h1>
+        <div class="tagline">worn clothes // for the youth</div>
     </div>
 
     <div class="products-grid">
         <!-- card 1 -->
         <div class="product-card">
-            <div class="image-placeholder">
-                <i>📸 DESIGN IMAGE 1</i>
+            <div class="product-image">
+                <i>📸 OVERSIZED DENIM</i>
             </div>
-            <div class="product-title">Oversized Denim Jacket</div>
-            <div class="product-description">
-                Washed black, worn effect, red stitching. Relaxed fit, made for layering.
+            <div class="product-info">
+                <div class="product-title">Oversized Denim Jacket</div>
+                <div class="product-description">
+                    Washed black, worn effect, red stitching. Relaxed fit, made for layering.
+                </div>
+                <div class="badge">sample ready</div>
             </div>
-            <div class="badge">sample / production ready</div>
         </div>
 
         <!-- card 2 -->
         <div class="product-card">
-            <div class="image-placeholder">
-                <i>📸 DESIGN IMAGE 2</i>
+            <div class="product-image">
+                <i>📸 CARGO PANTS</i>
             </div>
-            <div class="product-title">Cargo Pants "Silent Riot"</div>
-            <div class="product-description">
-                Heavy cotton, multiple pockets, red drawcord. Pre‑washed for softness.
+            <div class="product-info">
+                <div class="product-title">Cargo Pants "Silent Riot"</div>
+                <div class="product-description">
+                    Heavy cotton, multiple pockets, red drawcord. Pre‑washed for softness.
+                </div>
+                <div class="badge">prototype approved</div>
             </div>
-            <div class="badge">prototype approved</div>
         </div>
 
         <!-- card 3 -->
         <div class="product-card">
-            <div class="image-placeholder">
-                <i>📸 DESIGN IMAGE 3</i>
+            <div class="product-image">
+                <i>📸 CROPPED HOODIE</i>
             </div>
-            <div class="product-title">Cropped Hoodie</div>
-            <div class="product-description">
-                Boxy silhouette, raw hem, embroidered logo. Black/red colorblock.
+            <div class="product-info">
+                <div class="product-title">Cropped Hoodie</div>
+                <div class="product-description">
+                    Boxy silhouette, raw hem, embroidered logo. Black/red colorblock.
+                </div>
+                <div class="badge">new collection</div>
             </div>
-            <div class="badge">new collection</div>
         </div>
 
         <!-- card 4 -->
         <div class="product-card">
-            <div class="image-placeholder">
-                <i>📸 DESIGN IMAGE 4</i>
+            <div class="product-image">
+                <i>📸 VINTAGE TEE</i>
             </div>
-            <div class="product-title">Vintage Tee "Noise"</div>
-            <div class="product-description">
-                Garment‑dyed, pigment print, slightly distressed. Unisex sizing.
+            <div class="product-info">
+                <div class="product-title">Vintage Tee "Noise"</div>
+                <div class="product-description">
+                    Garment‑dyed, pigment print, slightly distressed. Unisex sizing.
+                </div>
+                <div class="badge">best seller</div>
             </div>
-            <div class="badge">best seller</div>
         </div>
 
         <!-- card 5 -->
         <div class="product-card">
-            <div class="image-placeholder">
-                <i>📸 DESIGN IMAGE 5</i>
+            <div class="product-image">
+                <i>📸 WORKWEAR VEST</i>
             </div>
-            <div class="product-title">Workwear Vest</div>
-            <div class="product-description">
-                Multi‑pocket, buckle straps, faded black ripstop.
+            <div class="product-info">
+                <div class="product-title">Workwear Vest</div>
+                <div class="product-description">
+                    Multi‑pocket, buckle straps, faded black ripstop.
+                </div>
+                <div class="badge">limited run</div>
             </div>
-            <div class="badge">limited run</div>
         </div>
 
         <!-- card 6 -->
         <div class="product-card">
-            <div class="image-placeholder">
-                <i>📸 DESIGN IMAGE 6</i>
+            <div class="product-image">
+                <i>📸 PATCHWORK JEANS</i>
             </div>
-            <div class="product-title">Patchwork Jeans</div>
-            <div class="product-description">
-                Upcycled panels, red contrast seams, baggy fit.
+            <div class="product-info">
+                <div class="product-title">Patchwork Jeans</div>
+                <div class="product-description">
+                    Upcycled panels, red contrast seams, baggy fit.
+                </div>
+                <div class="badge">made to order</div>
             </div>
-            <div class="badge">made to order</div>
         </div>
     </div>
 
     <div class="contact-note">
-        <p style="font-size:1.2rem; font-weight:600;">📦 ready for production</p>
-        <p>All samples are final. Technical packs & size specs available upon request.<br>
-        For bulk orders or custom runs, contact the SILNT team directly.</p>
-        <a href="#" class="btn">📩 REQUEST TECH PACK</a>
+        <p style="font-size:1.1rem; font-weight:600;">📦 ready for production</p>
+        <p>Technical packs & size specs available. Contact SILNT for bulk orders.</p>
+        <a href="#" class="btn">REQUEST TECH PACK</a>
     </div>
 
     <hr>
     <footer>
         SILNT — worn clothes for the youth © 2025<br>
-        black / red / white collection
+        black / red / white
     </footer>
 </div>
 </body>
