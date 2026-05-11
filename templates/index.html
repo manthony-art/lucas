@@ -14,7 +14,7 @@
         body {
             background: white;
             font-family: 'Inter', 'Segoe UI', system-ui, sans-serif;
-            color: #111;
+            color: black;
             padding: 2rem 1.5rem;
         }
 
@@ -26,12 +26,12 @@
         /* header */
         .brand-header {
             text-align: center;
-            margin-bottom: 3rem;
+            margin-bottom: 4rem;
         }
 
         h1 {
             font-size: 4rem;
-            letter-spacing: 4px;
+            letter-spacing: 6px;
             font-weight: 800;
             color: black;
         }
@@ -43,68 +43,65 @@
         .tagline {
             font-size: 1rem;
             text-transform: uppercase;
-            letter-spacing: 2px;
+            letter-spacing: 3px;
             color: #555;
             margin-top: 0.5rem;
         }
 
-        /* product grid */
+        /* product grid – each card holds a clothing image + description */
         .products-grid {
             display: flex;
             flex-direction: column;
-            gap: 2rem;
+            gap: 2.5rem;
         }
 
-        /* floating card */
+        /* product card */
         .product-card {
             display: flex;
             align-items: center;
             gap: 2rem;
             background: white;
-            border-radius: 28px;
-            padding: 1.5rem;
-            box-shadow: 0 12px 24px -12px rgba(0, 0, 0, 0.08);
-            border: 1px solid #f0f0f0;
-            transition: box-shadow 0.2s, transform 0.2s;
+            border-radius: 32px;
+            padding: 1.5rem 2rem;
+            transition: all 0.2s;
         }
 
-        .product-card:hover {
-            box-shadow: 0 20px 30px -12px rgba(0, 0, 0, 0.15);
-            transform: translateY(-2px);
-        }
-
-        /* image container – floats on hover */
-        .product-image {
+        /* image wrapper – this is what will hover/float */
+        .image-wrapper {
             flex-shrink: 0;
-            width: 160px;
-            height: 160px;
-            background: #f8f8f8;
-            border-radius: 20px;
+            width: 180px;
+            height: 180px;
+            border-radius: 24px;
+            overflow: hidden;
+            transition: transform 0.25s cubic-bezier(0.2, 0.9, 0.4, 1.1), box-shadow 0.25s;
+            will-change: transform;
+        }
+
+        /* the actual image placeholder (will be replaced with real product photos) */
+        .product-img {
+            width: 100%;
+            height: 100%;
+            background: #f5f5f5;
             display: flex;
             align-items: center;
             justify-content: center;
             font-size: 0.8rem;
-            color: #aaa;
-            text-align: center;
-            transition: transform 0.25s ease, box-shadow 0.25s ease;
-            border: 1px solid #eee;
-        }
-
-        /* the floating effect on hover */
-        .product-card:hover .product-image {
-            transform: translateY(-8px);
-            box-shadow: 0 15px 20px -10px rgba(0, 0, 0, 0.1);
-            background: #fff;
-            border-color: #ddd;
-        }
-
-        .product-image i {
-            font-style: normal;
-            background: #fff;
-            padding: 6px 12px;
-            border-radius: 30px;
-            font-size: 0.7rem;
             color: #888;
+            text-align: center;
+            border: 1px solid #eee;
+            border-radius: 24px;
+            transition: background 0.2s;
+        }
+
+        /* 🔥🔥🔥 HOVER EFFECT – the image floats when cursor is near the card */
+        .product-card:hover .image-wrapper {
+            transform: translateY(-12px);
+            box-shadow: 0 20px 25px -12px rgba(0, 0, 0, 0.2);
+        }
+
+        .product-card:hover .product-img {
+            background: #fff;
+            border-color: #c00;
         }
 
         /* description area */
@@ -113,31 +110,31 @@
         }
 
         .product-title {
-            font-size: 1.5rem;
+            font-size: 1.6rem;
             font-weight: 700;
             margin-bottom: 0.5rem;
             color: black;
         }
 
         .product-description {
-            font-size: 0.9rem;
+            font-size: 0.95rem;
             color: #444;
-            line-height: 1.4;
+            line-height: 1.5;
             margin-bottom: 0.75rem;
         }
 
         .badge {
             display: inline-block;
             background: #f2f2f2;
-            padding: 4px 12px;
-            border-radius: 30px;
+            padding: 4px 14px;
+            border-radius: 40px;
             font-size: 0.7rem;
             font-weight: 600;
             color: #c00;
-            border-left: 2px solid #c00;
+            border-left: 3px solid #c00;
         }
 
-        /* contact section */
+        /* manufacturer note */
         .contact-note {
             margin-top: 4rem;
             text-align: center;
@@ -158,7 +155,7 @@
             background: #c00;
             color: white;
             border: none;
-            padding: 10px 24px;
+            padding: 10px 28px;
             border-radius: 40px;
             font-weight: bold;
             text-decoration: none;
@@ -181,7 +178,7 @@
             margin-top: 2rem;
         }
 
-        @media (max-width: 700px) {
+        @media (max-width: 750px) {
             body {
                 padding: 1rem;
             }
@@ -190,9 +187,9 @@
                 text-align: center;
                 padding: 1.2rem;
             }
-            .product-image {
-                width: 140px;
-                height: 140px;
+            .image-wrapper {
+                width: 150px;
+                height: 150px;
                 margin-bottom: 1rem;
             }
             .product-title {
@@ -212,10 +209,10 @@
     </div>
 
     <div class="products-grid">
-        <!-- card 1 -->
+        <!-- Each card = a clothing item. Hover near → image floats up. -->
         <div class="product-card">
-            <div class="product-image">
-                <i>📸 OVERSIZED DENIM</i>
+            <div class="image-wrapper">
+                <div class="product-img">📸 DENIM JACKET</div>
             </div>
             <div class="product-info">
                 <div class="product-title">Oversized Denim Jacket</div>
@@ -226,10 +223,9 @@
             </div>
         </div>
 
-        <!-- card 2 -->
         <div class="product-card">
-            <div class="product-image">
-                <i>📸 CARGO PANTS</i>
+            <div class="image-wrapper">
+                <div class="product-img">📸 CARGO PANTS</div>
             </div>
             <div class="product-info">
                 <div class="product-title">Cargo Pants "Silent Riot"</div>
@@ -240,10 +236,9 @@
             </div>
         </div>
 
-        <!-- card 3 -->
         <div class="product-card">
-            <div class="product-image">
-                <i>📸 CROPPED HOODIE</i>
+            <div class="image-wrapper">
+                <div class="product-img">📸 CROPPED HOODIE</div>
             </div>
             <div class="product-info">
                 <div class="product-title">Cropped Hoodie</div>
@@ -254,10 +249,9 @@
             </div>
         </div>
 
-        <!-- card 4 -->
         <div class="product-card">
-            <div class="product-image">
-                <i>📸 VINTAGE TEE</i>
+            <div class="image-wrapper">
+                <div class="product-img">📸 VINTAGE TEE</div>
             </div>
             <div class="product-info">
                 <div class="product-title">Vintage Tee "Noise"</div>
@@ -268,10 +262,9 @@
             </div>
         </div>
 
-        <!-- card 5 -->
         <div class="product-card">
-            <div class="product-image">
-                <i>📸 WORKWEAR VEST</i>
+            <div class="image-wrapper">
+                <div class="product-img">📸 WORKWEAR VEST</div>
             </div>
             <div class="product-info">
                 <div class="product-title">Workwear Vest</div>
@@ -282,10 +275,9 @@
             </div>
         </div>
 
-        <!-- card 6 -->
         <div class="product-card">
-            <div class="product-image">
-                <i>📸 PATCHWORK JEANS</i>
+            <div class="image-wrapper">
+                <div class="product-img">📸 PATCHWORK JEANS</div>
             </div>
             <div class="product-info">
                 <div class="product-title">Patchwork Jeans</div>
