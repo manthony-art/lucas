@@ -1,0 +1,224 @@
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: Arial, Helvetica, sans-serif;
+}
+
+body {
+    background: #0a0a0a;
+    color: #ddd;
+}
+
+/* ----- AMAZON STYLE TOP BAR ----- */
+.top-bar {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    background: #000;
+    padding: 12px 20px;
+    border-bottom: 2px solid red;
+    flex-wrap: wrap;
+}
+
+.logo {
+    font-size: 28px;
+    font-weight: bold;
+    color: red;
+    letter-spacing: 2px;
+}
+
+.search-bar {
+    display: flex;
+    flex: 1;
+    max-width: 500px;
+    margin: 0 20px;
+}
+
+.search-bar input {
+    width: 100%;
+    padding: 10px;
+    border: none;
+    background: #222;
+    color: white;
+    border-radius: 6px 0 0 6px;
+    outline: none;
+}
+
+.search-bar button {
+    background: red;
+    border: none;
+    padding: 0 15px;
+    border-radius: 0 6px 6px 0;
+    cursor: pointer;
+    font-size: 18px;
+    color: white;
+}
+
+.account-links a {
+    color: white;
+    text-decoration: none;
+    margin-left: 20px;
+    font-size: 14px;
+}
+.account-links a:hover {
+    color: red;
+}
+
+/* ----- CATEGORY NAVIGATION ----- */
+.category-nav {
+    background: #111;
+    padding: 10px 20px;
+    display: flex;
+    gap: 25px;
+    border-bottom: 1px solid #222;
+    overflow-x: auto;
+}
+
+.category-nav a {
+    color: #ccc;
+    text-decoration: none;
+    font-size: 14px;
+    font-weight: bold;
+}
+.category-nav a:hover {
+    color: red;
+}
+
+/* ----- MAIN LAYOUT: SIDEBAR + PRODUCT GRID ----- */
+.main-container {
+    display: flex;
+    max-width: 1400px;
+    margin: 30px auto;
+    padding: 0 20px;
+    gap: 30px;
+}
+
+/* Sidebar filters */
+.sidebar {
+    width: 260px;
+    background: #111;
+    padding: 20px;
+    border-radius: 8px;
+    height: fit-content;
+}
+
+.sidebar h3 {
+    font-size: 18px;
+    margin-bottom: 20px;
+    color: red;
+}
+
+.filter-section {
+    margin-bottom: 25px;
+}
+
+.filter-section h4 {
+    font-size: 15px;
+    margin-bottom: 10px;
+    color: white;
+}
+
+.filter-section label {
+    display: block;
+    margin: 8px 0;
+    font-size: 13px;
+    color: #bbb;
+}
+
+/* Product grid (Amazon‑style cards) */
+.products-grid {
+    flex: 1;
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(260px, 1fr));
+    gap: 25px;
+}
+
+.product-card {
+    background: #111;
+    border: 1px solid #222;
+    border-radius: 12px;
+    overflow: hidden;
+    transition: transform 0.2s, box-shadow 0.2s;
+}
+.product-card:hover {
+    transform: translateY(-5px);
+    box-shadow: 0 8px 20px rgba(255,0,0,0.2);
+    border-color: red;
+}
+
+.image-placeholder {
+    height: 220px;
+    background: #1a1a1a;
+    border-bottom: 1px solid #222;
+}
+
+.product-info {
+    padding: 15px;
+}
+
+.product-info h3 {
+    font-size: 18px;
+    margin-bottom: 8px;
+    color: white;
+}
+
+.price {
+    font-size: 20px;
+    font-weight: bold;
+    color: red;
+    margin: 10px 0;
+}
+
+.rating {
+    font-size: 14px;
+    color: #ffaa44;
+}
+
+.view-btn {
+    background: #222;
+    color: white;
+    border: 1px solid red;
+    padding: 8px 16px;
+    border-radius: 6px;
+    cursor: pointer;
+    margin-top: 12px;
+    width: 100%;
+    font-weight: bold;
+    transition: 0.2s;
+}
+.view-btn:hover {
+    background: red;
+    color: black;
+    border-color: red;
+}
+
+/* Footer */
+footer {
+    background: #000;
+    padding: 30px 20px;
+    text-align: center;
+    border-top: 1px solid red;
+    margin-top: 40px;
+}
+
+.footer-links {
+    display: flex;
+    justify-content: center;
+    gap: 30px;
+    margin-bottom: 20px;
+}
+
+.footer-links a {
+    color: white;
+    text-decoration: none;
+    font-size: 14px;
+}
+.footer-links a:hover {
+    color: red;
+}
+
+footer p {
+    font-size: 12px;
+    color: #777;
+}
