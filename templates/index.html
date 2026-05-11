@@ -2,83 +2,134 @@
 <html lang="en">
 <head>
     <meta charset="UTF-8">
-    <title>SILNT</title>
+    <title>SILNT – Streetwear</title>
     <link rel="stylesheet" href="/static/style.css">
 </head>
-
 <body>
 
-<!-- NAVBAR -->
-<nav class="nav">
+<!-- Amazon‑style top bar -->
+<div class="top-bar">
     <div class="logo">SILNT</div>
-    <div class="links">
-        <a href="#about">About</a>
-        <a href="#lookbook">Lookbook</a>
-        <a href="#vision">Vision</a>
+    <div class="search-bar">
+        <input type="text" placeholder="Search designs...">
+        <button>🔍</button>
     </div>
-</nav>
-
-<!-- HERO -->
-<section class="hero">
-    <h1>SILNT</h1>
-    <p>Streetwear for the unheard generation.</p>
-</section>
-
-<!-- ABOUT -->
-<section id="about" class="section dark">
-    <h2>The Brand</h2>
-    <p>
-        SILNT is a youth streetwear label focused on worn textures,
-        bold silhouettes and quiet confidence.
-        Every piece represents individuality without noise.
-    </p>
-</section>
-
-<!-- LOOKBOOK -->
-<section id="lookbook" class="section">
-    <h2>Latest Designs</h2>
-
-    <div class="grid">
-
-        <div class="card">
-            <div class="placeholder"></div>
-            <h3>Oversized Hoodie</h3>
-            <p>Heavyweight street fit.</p>
-        </div>
-
-        <div class="card">
-            <div class="placeholder"></div>
-            <h3>Graphic Tee</h3>
-            <p>Minimal youth expression.</p>
-        </div>
-
-        <div class="card">
-            <div class="placeholder"></div>
-            <h3>Distressed Denim</h3>
-            <p>Raw and worn aesthetic.</p>
-        </div>
-
-        <div class="card">
-            <div class="placeholder"></div>
-            <h3>Street Jacket</h3>
-            <p>Urban outerwear concept.</p>
-        </div>
-
+    <div class="account-links">
+        <a href="#">Account</a>
+        <a href="#">Orders</a>
     </div>
-</section>
+</div>
 
-<!-- VISION -->
-<section id="vision" class="section dark">
-    <h2>Our Vision</h2>
-    <p>
-        SILNT exists for young creatives who speak through style.
-        This platform showcases the evolving identity of the brand
-        and upcoming collections.
-    </p>
-</section>
+<!-- Secondary navigation (categories) -->
+<div class="category-nav">
+    <a href="#">All</a>
+    <a href="#">Hoodies</a>
+    <a href="#">T‑Shirts</a>
+    <a href="#">Denim</a>
+    <a href="#">Jackets</a>
+    <a href="#">Accessories</a>
+</div>
 
+<!-- Main container with sidebar + product grid -->
+<div class="main-container">
+
+    <!-- Left sidebar (filters) -->
+    <aside class="sidebar">
+        <h3>Filter by</h3>
+        <div class="filter-section">
+            <h4>Size</h4>
+            <label><input type="checkbox"> XS</label>
+            <label><input type="checkbox"> S</label>
+            <label><input type="checkbox"> M</label>
+            <label><input type="checkbox"> L</label>
+            <label><input type="checkbox"> XL</label>
+        </div>
+        <div class="filter-section">
+            <h4>Color</h4>
+            <label><input type="checkbox"> Black</label>
+            <label><input type="checkbox"> White</label>
+            <label><input type="checkbox"> Red</label>
+        </div>
+        <div class="filter-section">
+            <h4>Collection</h4>
+            <label><input type="checkbox"> Core</label>
+            <label><input type="checkbox"> Worn</label>
+            <label><input type="checkbox"> Limited</label>
+        </div>
+    </aside>
+
+    <!-- Product grid (lookbook) -->
+    <section class="products-grid">
+        <div class="product-card">
+            <div class="image-placeholder"></div>
+            <div class="product-info">
+                <h3>Oversized Hoodie</h3>
+                <p class="price">$89</p>
+                <p class="rating">★★★★☆ (24)</p>
+                <button class="view-btn">View design</button>
+            </div>
+        </div>
+
+        <div class="product-card">
+            <div class="image-placeholder"></div>
+            <div class="product-info">
+                <h3>Graphic Tee</h3>
+                <p class="price">$39</p>
+                <p class="rating">★★★★★ (47)</p>
+                <button class="view-btn">View design</button>
+            </div>
+        </div>
+
+        <div class="product-card">
+            <div class="image-placeholder"></div>
+            <div class="product-info">
+                <h3>Distressed Denim</h3>
+                <p class="price">$129</p>
+                <p class="rating">★★★★☆ (18)</p>
+                <button class="view-btn">View design</button>
+            </div>
+        </div>
+
+        <div class="product-card">
+            <div class="image-placeholder"></div>
+            <div class="product-info">
+                <h3>Street Jacket</h3>
+                <p class="price">$159</p>
+                <p class="rating">★★★★★ (32)</p>
+                <button class="view-btn">View design</button>
+            </div>
+        </div>
+
+        <div class="product-card">
+            <div class="image-placeholder"></div>
+            <div class="product-info">
+                <h3>Worn Cargo Pants</h3>
+                <p class="price">$99</p>
+                <p class="rating">★★★★☆ (11)</p>
+                <button class="view-btn">View design</button>
+            </div>
+        </div>
+
+        <div class="product-card">
+            <div class="image-placeholder"></div>
+            <div class="product-info">
+                <h3>Beanie</h3>
+                <p class="price">$25</p>
+                <p class="rating">★★★★★ (9)</p>
+                <button class="view-btn">View design</button>
+            </div>
+        </div>
+    </section>
+</div>
+
+<!-- Footer -->
 <footer>
-    © 2026 SILNT — All Rights Reserved
+    <div class="footer-links">
+        <a href="#">About SILNT</a>
+        <a href="#">Vision</a>
+        <a href="#">Contact</a>
+    </div>
+    <p>© 2026 SILNT — All Rights Reserved</p>
 </footer>
 
 </body>
