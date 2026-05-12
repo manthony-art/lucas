@@ -2,304 +2,125 @@
 <html lang="en">
 <head>
     <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes">
-    <title>SILNT – worn clothes for the youth</title>
-    <style>
-        * {
-            margin: 0;
-            padding: 0;
-            box-sizing: border-box;
-        }
-
-        body {
-            background: white;
-            font-family: 'Inter', 'Segoe UI', system-ui, sans-serif;
-            color: black;
-            padding: 2rem 1.5rem;
-        }
-
-        .container {
-            max-width: 1100px;
-            margin: 0 auto;
-        }
-
-        /* header */
-        .brand-header {
-            text-align: center;
-            margin-bottom: 4rem;
-        }
-
-        h1 {
-            font-size: 4rem;
-            letter-spacing: 6px;
-            font-weight: 800;
-            color: black;
-        }
-
-        h1 span {
-            color: #c00;
-        }
-
-        .tagline {
-            font-size: 1rem;
-            text-transform: uppercase;
-            letter-spacing: 3px;
-            color: #555;
-            margin-top: 0.5rem;
-        }
-
-        /* product grid – each card holds a clothing image + description */
-        .products-grid {
-            display: flex;
-            flex-direction: column;
-            gap: 2.5rem;
-        }
-
-        /* product card */
-        .product-card {
-            display: flex;
-            align-items: center;
-            gap: 2rem;
-            background: white;
-            border-radius: 32px;
-            padding: 1.5rem 2rem;
-            transition: all 0.2s;
-        }
-
-        /* image wrapper – this is what will hover/float */
-        .image-wrapper {
-            flex-shrink: 0;
-            width: 180px;
-            height: 180px;
-            border-radius: 24px;
-            overflow: hidden;
-            transition: transform 0.25s cubic-bezier(0.2, 0.9, 0.4, 1.1), box-shadow 0.25s;
-            will-change: transform;
-        }
-
-        /* the actual image placeholder (will be replaced with real product photos) */
-        .product-img {
-            width: 100%;
-            height: 100%;
-            background: #f5f5f5;
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            font-size: 0.8rem;
-            color: #888;
-            text-align: center;
-            border: 1px solid #eee;
-            border-radius: 24px;
-            transition: background 0.2s;
-        }
-
-        /* 🔥🔥🔥 HOVER EFFECT – the image floats when cursor is near the card */
-        .product-card:hover .image-wrapper {
-            transform: translateY(-12px);
-            box-shadow: 0 20px 25px -12px rgba(0, 0, 0, 0.2);
-        }
-
-        .product-card:hover .product-img {
-            background: #fff;
-            border-color: #c00;
-        }
-
-        /* description area */
-        .product-info {
-            flex: 1;
-        }
-
-        .product-title {
-            font-size: 1.6rem;
-            font-weight: 700;
-            margin-bottom: 0.5rem;
-            color: black;
-        }
-
-        .product-description {
-            font-size: 0.95rem;
-            color: #444;
-            line-height: 1.5;
-            margin-bottom: 0.75rem;
-        }
-
-        .badge {
-            display: inline-block;
-            background: #f2f2f2;
-            padding: 4px 14px;
-            border-radius: 40px;
-            font-size: 0.7rem;
-            font-weight: 600;
-            color: #c00;
-            border-left: 3px solid #c00;
-        }
-
-        /* manufacturer note */
-        .contact-note {
-            margin-top: 4rem;
-            text-align: center;
-            background: #fafafa;
-            padding: 2rem;
-            border-radius: 28px;
-            border: 1px solid #eee;
-        }
-
-        .contact-note p {
-            max-width: 500px;
-            margin: 0 auto 1rem auto;
-            color: #333;
-        }
-
-        .btn {
-            display: inline-block;
-            background: #c00;
-            color: white;
-            border: none;
-            padding: 10px 28px;
-            border-radius: 40px;
-            font-weight: bold;
-            text-decoration: none;
-            transition: background 0.2s;
-        }
-
-        .btn:hover {
-            background: #a00;
-        }
-
-        hr {
-            border-color: #eee;
-            margin: 2rem 0;
-        }
-
-        footer {
-            text-align: center;
-            font-size: 0.7rem;
-            color: #aaa;
-            margin-top: 2rem;
-        }
-
-        @media (max-width: 750px) {
-            body {
-                padding: 1rem;
-            }
-            .product-card {
-                flex-direction: column;
-                text-align: center;
-                padding: 1.2rem;
-            }
-            .image-wrapper {
-                width: 150px;
-                height: 150px;
-                margin-bottom: 1rem;
-            }
-            .product-title {
-                font-size: 1.3rem;
-            }
-            h1 {
-                font-size: 2.5rem;
-            }
-        }
-    </style>
+    <title>SILNT – Streetwear for the unheard generation</title>
+    <link rel="stylesheet" href="/static/style.css">
 </head>
 <body>
-<div class="container">
-    <div class="brand-header">
-        <h1>SILNT<span>.</span></h1>
-        <div class="tagline">worn clothes // for the youth</div>
+
+<!-- NAVBAR -->
+<nav class="nav">
+    <div class="logo">SILNT</div>
+    <div class="links">
+        <a href="#about">About</a>
+        <a href="#lookbook">Lookbook</a>
+        <a href="#vision">Vision</a>
     </div>
+</nav>
 
-    <div class="products-grid">
-        <!-- Each card = a clothing item. Hover near → image floats up. -->
-        <div class="product-card">
-            <div class="image-wrapper">
-                <div class="product-img">📸 DENIM JACKET</div>
-            </div>
-            <div class="product-info">
-                <div class="product-title">Oversized Denim Jacket</div>
-                <div class="product-description">
-                    Washed black, worn effect, red stitching. Relaxed fit, made for layering.
-                </div>
-                <div class="badge">sample ready</div>
-            </div>
+<!-- HERO -->
+<section class="hero">
+    <h1>SILNT</h1>
+    <p>Streetwear for the unheard generation.</p>
+</section>
+
+<!-- COLLECTIONS (new) -->
+<section class="section reveal">
+    <h2>Collections</h2>
+    <div class="grid">
+        <div class="card">
+            <div class="placeholder"></div>
+            <h3>DROP 001</h3>
+            <p>Launch collection</p>
         </div>
-
-        <div class="product-card">
-            <div class="image-wrapper">
-                <div class="product-img">📸 CARGO PANTS</div>
-            </div>
-            <div class="product-info">
-                <div class="product-title">Cargo Pants "Silent Riot"</div>
-                <div class="product-description">
-                    Heavy cotton, multiple pockets, red drawcord. Pre‑washed for softness.
-                </div>
-                <div class="badge">prototype approved</div>
-            </div>
+        <div class="card">
+            <div class="placeholder"></div>
+            <h3>DROP 002</h3>
+            <p>Coming soon</p>
         </div>
-
-        <div class="product-card">
-            <div class="image-wrapper">
-                <div class="product-img">📸 CROPPED HOODIE</div>
-            </div>
-            <div class="product-info">
-                <div class="product-title">Cropped Hoodie</div>
-                <div class="product-description">
-                    Boxy silhouette, raw hem, embroidered logo. Black/red colorblock.
-                </div>
-                <div class="badge">new collection</div>
-            </div>
-        </div>
-
-        <div class="product-card">
-            <div class="image-wrapper">
-                <div class="product-img">📸 VINTAGE TEE</div>
-            </div>
-            <div class="product-info">
-                <div class="product-title">Vintage Tee "Noise"</div>
-                <div class="product-description">
-                    Garment‑dyed, pigment print, slightly distressed. Unisex sizing.
-                </div>
-                <div class="badge">best seller</div>
-            </div>
-        </div>
-
-        <div class="product-card">
-            <div class="image-wrapper">
-                <div class="product-img">📸 WORKWEAR VEST</div>
-            </div>
-            <div class="product-info">
-                <div class="product-title">Workwear Vest</div>
-                <div class="product-description">
-                    Multi‑pocket, buckle straps, faded black ripstop.
-                </div>
-                <div class="badge">limited run</div>
-            </div>
-        </div>
-
-        <div class="product-card">
-            <div class="image-wrapper">
-                <div class="product-img">📸 PATCHWORK JEANS</div>
-            </div>
-            <div class="product-info">
-                <div class="product-title">Patchwork Jeans</div>
-                <div class="product-description">
-                    Upcycled panels, red contrast seams, baggy fit.
-                </div>
-                <div class="badge">made to order</div>
-            </div>
+        <div class="card">
+            <div class="placeholder"></div>
+            <h3>Limited Pieces</h3>
+            <p>Exclusive designs</p>
         </div>
     </div>
+</section>
 
-    <div class="contact-note">
-        <p style="font-size:1.1rem; font-weight:600;">📦 ready for production</p>
-        <p>Technical packs & size specs available. Contact SILNT for bulk orders.</p>
-        <a href="#" class="btn">REQUEST TECH PACK</a>
+<!-- ABOUT -->
+<section id="about" class="section dark reveal">
+    <h2>The Brand</h2>
+    <p>
+        SILNT is a youth streetwear label focused on worn textures,
+        bold silhouettes and quiet confidence.
+        Every piece represents individuality without noise.
+    </p>
+</section>
+
+<!-- LOOKBOOK (Latest Designs) -->
+<section id="lookbook" class="section reveal">
+    <h2>Latest Designs</h2>
+    <div class="grid">
+        <div class="card">
+            <div class="placeholder"></div>
+            <h3>Oversized Hoodie</h3>
+            <p>Heavyweight street fit.</p>
+        </div>
+        <div class="card">
+            <div class="placeholder"></div>
+            <h3>Graphic Tee</h3>
+            <p>Minimal youth expression.</p>
+        </div>
+        <div class="card">
+            <div class="placeholder"></div>
+            <h3>Distressed Denim</h3>
+            <p>Raw and worn aesthetic.</p>
+        </div>
+        <div class="card">
+            <div class="placeholder"></div>
+            <h3>Street Jacket</h3>
+            <p>Urban outerwear concept.</p>
+        </div>
     </div>
+</section>
 
-    <hr>
-    <footer>
-        SILNT — worn clothes for the youth © 2025<br>
-        black / red / white
-    </footer>
-</div>
+<!-- VISION -->
+<section id="vision" class="section dark reveal">
+    <h2>Our Vision</h2>
+    <p>
+        SILNT exists for young creatives who speak through style.
+        This platform showcases the evolving identity of the brand
+        and upcoming collections.
+    </p>
+</section>
+
+<!-- SOCIAL MEDIA -->
+<section class="section reveal">
+    <h2>Follow SILNT</h2>
+    <p>Instagram • TikTok • Pinterest</p>
+</section>
+
+<!-- CONTACT -->
+<section class="section dark reveal">
+    <h2>Contact</h2>
+    <p>Email: contact@silntwear.com</p>
+</section>
+
+<!-- FOOTER -->
+<footer>
+    © 2026 SILNT<br>
+    Youth Streetwear Brand
+</footer>
+
+<!-- Scroll reveal script -->
+<script>
+    const observer = new IntersectionObserver(entries => {
+        entries.forEach(entry => {
+            if (entry.isIntersecting) {
+                entry.target.classList.add("show");
+            }
+        });
+    });
+    document.querySelectorAll(".reveal").forEach(el => observer.observe(el));
+</script>
+
 </body>
 </html>
